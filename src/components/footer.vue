@@ -1,9 +1,9 @@
 <template>
     <footer class="footer">
         <div><router-link to="/home"><i class="icon iconfont icon-wawa-movement"></i><h4>首页</h4></router-link></div>
-        <div><router-link to="/mine"><i class="icon iconfont icon-wawa-lease"></i><h4>蛙租</h4></router-link></div>
-        <div><router-link to="/rent"><i class="icon iconfont icon-wawa-movement"></i><h4>哇友圈</h4></router-link></div>
-        <div><router-link to="/moment"><i class="icon iconfont icon-wawa-lease"></i><h4>我的</h4></router-link></div>
+        <div><router-link to="/rent"><i class="icon iconfont icon-wawa-lease"></i><h4>蛙租</h4></router-link></div>
+        <div><router-link to="/moment"><i class="icon iconfont icon-wawa-movement"></i><h4>哇友圈</h4></router-link></div>
+        <div><router-link to="/mine"><i class="icon iconfont icon-wawa-lease"></i><h4>我的</h4></router-link></div>
     </footer>
 </template>
 

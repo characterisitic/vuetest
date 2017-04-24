@@ -1,16 +1,24 @@
 <template>
   <div class="rent">
+    <v-header :titl="titl"></v-header>
     <h1>{{ msg }}</h1>
     
   </div>
 </template>
 
 <script>
+import vHeader from './header.vue'
 export default {
-  name: 'rent',
+  name: 'mine',
+  components:{
+    "v-header":vHeader
+  },
   data () {
     return {
-      msg: 'this is a rent'
+      msg: 'this is a rent',
+      titl: {
+        name:'蛙租'
+      }
     }
   }
 }

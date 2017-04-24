@@ -1,7 +1,7 @@
 <template>
     <header class="header">
-        <div class="header-left"><i class="icon iconfont icon-wawa-navReturn"></i></div>
-        <div class="header-center">首页</div>
+        <div class="header-left"><i class="icon iconfont" :class="returns"></i></div>
+        <div class="header-center">{{titl.name}}</div>
         <div class="header-right"></div>
     </header>
 </template>
@@ -9,9 +9,15 @@
 <script>
 export default {
   name: 'Header',
+  props: {
+      titl: {
+          type:Object
+      }
+  },
   data () {
     return {
-      msg: 'this is a bar'
+      msg: 'this is a bar',
+      returns:' icon-wawa-navReturn'
     }
   }
 }

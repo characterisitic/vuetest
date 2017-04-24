@@ -1,16 +1,24 @@
 <template>
   <div class="moment">
+     <v-header :titl="titl"></v-header>
     <h1>{{ msg }}</h1>
     
   </div>
 </template>
 
 <script>
+import vHeader from './header.vue'
 export default {
-  name: 'moment',
+  name: 'mine',
+  components:{
+    "v-header":vHeader
+  },
   data () {
     return {
-      msg: 'this is a moment'
+      msg: 'this is a monent',
+      titl: {
+        name:'哇友圈'
+      }
     }
   }
 }

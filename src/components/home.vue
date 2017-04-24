@@ -1,8 +1,9 @@
 <template>
  
   <div class="home">
-   <v-header></v-header>
-    <h1>{{msg}}</h1>
+   <v-header :titl="titl"></v-header>
+   <p>{{msg}}</p>
+  </mt-loadmore>
     
   </div>
 </template>
@@ -16,7 +17,11 @@ export default {
   },
   data () {
     return {
-      msg: 'this is a homepage'
+      msg: 'this is a homepage',
+      titl:{
+          name:'首页'
+      },
+      list:[1,2,3,4,5,6,7,8,9,1,2,2,3,4,5,65,7,8]
     }
   }
 }

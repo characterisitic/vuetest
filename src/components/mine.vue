@@ -1,6 +1,6 @@
 <template>
   <div class="mine">
-    <v-header></v-header>
+    <v-header :titl="titl"></v-header>
     <h1>{{ msg }}</h1>
     
   </div>
@@ -15,7 +15,10 @@ export default {
   },
   data () {
     return {
-      msg: 'this is a mine'
+      msg: 'this is a mine',
+      titl: {
+        name:'我的'
+      }
     }
   }
 }
