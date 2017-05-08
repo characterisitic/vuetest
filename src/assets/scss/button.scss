@@ -1,0 +1,305 @@
+$btnClass:
+    ('blue' #009eee #fff)
+    ('red' $red #fff)
+    ('green' $green #fff)
+    ('ondine' #3dd031 #fff)
+    ('orange' $orange #fff)
+    ('pink' $pink #333)
+    ('white' #fff #fff)
+    ('turquoise' $turquoise #fff)
+    ('default' $default $font-color)
+    ('gray' $default $font-color)
+     ;
+
+@mixin btnStyle($bgColor: #e6e6e6, $textColor: #363636){
+    color: $textColor;
+    background-color: $bgColor;
+    border-color: $bgColor;
+    &.hover{
+        background-color: darken($bgColor,5%);
+    }
+    &.line{
+        background: none;
+        border-color: $bgColor;
+        color: $bgColor;
+        &.hover{
+            background-color: darken(#fff,3%);
+        }
+    }
+}
+@each $colorClass in $btnClass{
+    $class:  nth($colorClass,1);
+    $bgColor:  nth($colorClass,2);
+    $textColor:  nth($colorClass,3);
+    .btn.#{$class}{
+        @include btnStyle($bgColor,$textColor);
+    }
+}
+.btn{
+    display: inline-block;
+    border-radius: $radius/2;
+      font-size: convert(32px);
+    line-height: 1.2;
+    padding: 0.7em 0.75em;
+    background-color: $brand;
+    border: 1px solid $brand;
+    color: #fff;
+    @include onelinetext;
+    &.hover{
+        background-color: darken($brand,5%);
+    }
+    &.line{
+        background: none;
+        color: $font-color;
+        border: 1px solid $border;
+        &.hover{
+            background-color: darken(#fff,8%);
+        }  
+    }
+     &.white{
+          &.line{
+            &.hover{
+                background-color: rgba(0,0,0,0.2);
+            }
+        }
+     }
+    &.min{
+       line-height: 1.5; 
+       //font-size: convert(16px);
+       border-radius: 4px;
+       padding-top: 0.1em;
+       padding-bottom: 0.1em;
+    }
+    &.middle{
+       line-height: 1.5; 
+       //font-size: convert(18px);
+       border-radius: 5px;
+       padding-top: 0.1em;
+       padding-bottom: 0.1em;
+    }
+    &.block{
+        display: block;
+        width: 100%;
+    }
+    .icon{
+        vertical-align: middle;
+    }
+}
+
+.btn[disabled],
+.btn.disabled{
+    border-color: darken($bg,5%);
+    background-color: darken($bg,5%);
+    color: $gray;
+}
+$btn-margin:1.5em;
+.btn-group{
+    margin: $grid-padding 0;
+    padding: 0 $btn-margin/2;
+    text-align: center;
+    @include list-table(div,middle);
+    >.btn{
+        display: inline-block;
+        width: 60%;
+        max-width: convert(280px);
+        padding-left: 0.2em;
+        padding-right: 0.2em;
+    }
+    >div{
+        padding: 0 $btn-margin/2;
+        .btn{
+           display: block;
+           width: 100%; 
+        }
+    }
+}
+.btn-group.vertical{
+    display: block;
+    >div{
+        display: block;
+        padding: 0;
+        +div{
+            margin-top:$btn-margin/2;
+        }
+    }
+}
+
+
+.btn-switch {
+    $width:convert(100px);
+    $height:convert(60px);
+    $btnWidth:convert(56px);
+    $btnHeight:convert(56px);
+    $margin: convert(3px);
+    
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    input{
+        opacity: 0;
+        width: 0;
+        height: 0;
+        position: absolute;
+        z-index: 0;
+        &:checked{
+            +span{
+                background-color: $green;
+                box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+                &:after{
+                    left: $width - $btnWidth - $margin;
+                }
+            }
+        }
+    }
+    span {
+        @include transition;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: $width;
+        height: $height;
+        border-radius: $height;
+        box-shadow: 0 0 2px rgba(0, 0, 0, .5) inset;
+        &:after{
+            @include transition;
+            content: "";
+            position: absolute;
+            left: $margin;
+            top: $margin;
+            display: inline-block;
+            width: $btnWidth;
+            height: $btnHeight;
+            background-color: #fff;
+            box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+            border-radius: 50%;
+        }
+    }
+}
+
+.btn-comment{
+    $height: convert(55px);
+    $width:convert(90px);
+    $widthT: $width*5;
+    width: $widthT;
+    height: $height;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-image: url(../images/start.png);
+    background-size: 200% 100%;
+    background-position: right center;
+    overflow: hidden;
+    &.level0{
+        background-position: $width*5 center;
+    }
+    &.level1{
+        background-position: $width*6 center;
+    }
+    &.level2{
+        background-position: $width*7 center;
+    }
+    &.level3{
+        background-position: $width*8 center;
+    }
+    &.level4{
+        background-position: $width*9 center;
+    }
+    &.level5{
+        background-position: $width*10 center;
+    }
+    i{
+        display: inline-block;
+        position: absolute;
+        cursor: pointer;
+        top:0;
+        left:0;
+        height: 100%;
+        &[data-level='1']{
+            width: $width;
+            z-index: 5;
+        }
+        &[data-level='2']{
+            width: $width*2;
+            z-index: 4;
+        }
+        &[data-level='3']{
+            width: $width*3;
+            z-index: 3;
+        }
+        &[data-level='4']{
+            width: $width*4;
+            z-index: 2;
+        }
+        &[data-level='5']{
+            width: $width*5;
+            z-index: 1;
+        }
+    }
+    &.reserve{
+        width: 6em;
+        height: $height;
+    }
+}
+
+.btn-comment-show{
+    $height: convert(21px);
+    $width:convert(34.36px);
+    $widthT: $width*5;
+    width: $widthT;
+    height: $height;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background-image: url(../images/start.png);
+    background-size: 200% 100%;
+    background-position: right center;
+    overflow: hidden;
+    &.level0{
+        background-position: $width*5 center;
+    }
+    &.level1{
+        background-position: $width*6 center;
+    }
+    &.level2{
+        background-position: $width*7 center;
+    }
+    &.level3{
+        background-position: $width*8 center;
+    }
+    &.level4{
+        background-position: $width*9 center;
+    }
+    &.level5{
+        background-position: $width*10 center;
+    }
+    &.reserve{
+        width: 6em;
+        height: $height;
+    }
+}
+
+.copy-btn{
+    position: absolute;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 5px;
+    line-height: 2;
+    font-size: 1rem;
+    left: 50%;
+    padding: 0 20px;
+    z-index:100;
+    &:after{
+         content:"";
+        display: block;
+        position: absolute;
+        bottom:0;
+        left:50%;
+        z-index: 0;
+        width: 0.5em;
+        height: 0.5em;
+        transform: rotateZ(-45deg) translate(-50%,30%);
+        -webkit-transform: rotateZ(-45deg) translate(-50%,30%);
+        background-color: #000;
+    }
+}

@@ -31,6 +31,7 @@ export default {
     display:table;
     border-top:1px solid #f2f2f2;
         color: #cecece;
+         z-index:100;
     >div{
         display:table-cell;
         vertical-align:middle;

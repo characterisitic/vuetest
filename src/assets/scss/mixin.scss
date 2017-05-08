@@ -1,0 +1,164 @@
+$font: "Source Han Sans CN",sans-serif;
+$font-bold: "Source Han Sans CN Blod";
+$font-light: "Source Han Sans CN Light";
+$font-extralight: "Source Han Sans CN ExtraLight";
+$font-heavy: "Source Han Sans CN Heavy";
+//$bg: #e9e9e9;
+$bg: #f6f6f6;
+$font-size: 32px;
+
+
+
+$font-color: #151515;
+$font-color-light: #5b5b5b;
+$header-bg: #fff;
+$footer-bg: #fff;
+$brand: #fe5800;
+$warning: #ffb359;
+$primary: #007aff;
+$danger: #e93e3c;
+$success: #5daf1f;
+$disabled: #8e8e93;
+$border: #f6f6f6;
+$border-heavy: #999999;
+$border-light: #eeeeee;
+$palceholder: #bbbab8;
+
+
+
+$blue: #007aff;
+$blue2: #009eee;
+$orange: #fe5800;
+$pink: #ff9090;
+
+$brown: #76392b;
+$turquoise: #5ecfba;
+$default: #cccccc;
+
+$green: #28b55a;
+$placeholder:#afafaf;
+$gray: #cecece;
+$red: #ff3042;
+$price:#df0e1d;
+
+
+$nameSize: 30px;
+$contentSize:28px;
+@function convert($num,$unit:rem){
+    @if $unit == rem{
+        @return ($num/$font-size)*1rem;
+    }
+    @if $unit == em{
+        @return ($num/$font-size)*1em;
+    }
+}
+
+@mixin pointer-none {
+    pointer-events: none;
+    -webkit-pointer-events:none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none; 
+}
+@mixin fa{
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+@mixin clearfix{
+    &:before,&:after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+@mixin thumb-wrap{
+    &:after{
+        content: "";
+        display: block;
+        margin-top: 100%;
+    }
+    img{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+@mixin size($width,$height){
+    width: convert($width);
+    height: convert($height);
+}
+
+@mixin onelinetext{
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+@mixin list-table($ele:div,$vertical:middle){
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    &>#{$ele}{
+        display: table-cell;
+        vertical-align: $vertical;   
+    }
+}
+@mixin list-float($ele:div,$col:4){
+    &{
+        @include clearfix;
+    }
+    &>#{$ele}{
+        float:left;
+        width:percentage(1/$col);
+    }
+}
+@mixin list-flex($ele:div,$orient:horizontal,$pack:justify,$align:stretch,$direction:normal){
+    display: box;
+    box-pack: $pack;
+    box-align: $align;
+    box-orient: $orient;
+    box-direction: $direction;
+    
+    display: -moz-box;
+    -moz-box-pack: $pack;
+    -moz-box-align: $align;
+    -moz-box-orient: $orient;
+    -moz-box-direction: $direction;
+    
+    display: -webkit-box;
+    -webkit-box-pack: $pack;
+    -webkit-box-align: $align;
+    -webkit-box-orient: $orient;
+    -webkit-box-direction: $direction;
+    &>#{$ele}{
+        box-flex: 1.0;
+        -moz-box-flex: 1;
+        -webkit-box-flex: 1;
+    }
+}
+@mixin transition($key:all,$animate:ease-in,$duration:100ms){
+    transition: $key $animate $duration;
+    -webkit-transition: $key $animate $duration;
+}
+$grid-padding: convert(25px);
+$radius: convert(8px);
+$radius-input: convert(6px);
+$header-height: convert(88px);
+$footer-height: convert(98px);

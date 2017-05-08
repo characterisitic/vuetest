@@ -2,7 +2,7 @@
  
   <div class="home">
    <v-header :titl="titl"></v-header>
-   <p>{{msg}}</p>
+   <p>{{seller.name}}</p>
   </mt-loadmore>
     
   </div>
@@ -10,6 +10,7 @@
 
 <script>
 import vHeader from './header.vue'
+import axios from 'axios'
 export default {
   name: 'home',
   components: {
@@ -21,8 +22,18 @@ export default {
       titl:{
           name:'首页'
       },
-      list:[1,2,3,4,5,6,7,8,9,1,2,2,3,4,5,65,7,8]
+      list:[1,2,3,4,5,6,7,8,9,1,2,2,3,4,5,65,7,8],
+      seller: {
+
+      }
     }
+  },
+  created() {
+    this.$ajax.get('/api/seller')
+      .then((response) => {
+        console.log(response.data.data)
+        this.seller = response.data.data
+      })
   }
 }
 </script>

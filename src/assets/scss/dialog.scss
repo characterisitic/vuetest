@@ -1,0 +1,217 @@
+.dialog{
+    display: none;
+    position: fixed; 
+    top:0;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+    &.transparent{
+        .dialog-body{
+            background: none;
+        }
+    }
+    &.wechat{
+        background-color: rgba(0,0,0,.3);
+        background-image: url(../images/wxShareArrow.png);
+        background-repeat: no-repeat;
+        background-position: top right;
+        background-size: 50% auto;
+    }
+    .dialog-mask{
+        position: absolute;
+        z-index: 1;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background-color: rgba(0,0,0,.3);
+    }
+    .dialog-body{
+        z-index: 2;
+        background-color: #fff;
+    }
+    .dialog-title{
+        z-index: 1;
+        font-size: convert(40px);
+        line-height: 1.4;
+        padding: $grid-padding/2 $grid-padding;
+        text-align: center;
+        @include onelinetext;
+    }
+    .dialog-close{
+        font-size: convert(40px);
+        line-height: 1.4;
+        color: $gray;
+        &.hover{
+            text-shadow: 0 0 3px rgba(0,0,0,.5);
+            color: $font-color;
+        }
+    }
+    .dialog-control{
+        z-index: 2;
+        padding: $grid-padding/2 0;
+        text-align: center;
+        >.btn{
+            display: inline-block;
+            margin: 0 0.5em;
+        }
+        .btn-group{
+            margin:0;
+            padding:0;
+            display: table !important;
+            // .btn{
+                // width: 100%;
+                // display: inline-block;
+            // }
+        }
+    }
+    &.bottom,
+    &.top{
+        .dialog-control{
+            .btn-group{
+                >div{
+                    &:first-child{
+                        text-align: left;
+                    }
+                    &:last-child{
+                        text-align: right;
+                    }
+                }
+            }
+        } 
+    }
+    .dialog-title,
+    .dialog-control{
+        position: absolute;
+        left:0;
+        width: 100%;
+    }
+    &.modal{
+        .dialog-body{
+            position: absolute;
+            max-width: convert(600px);
+            width: (600px/750px)*100%;
+            border-radius: convert(10px);
+            max-height: 90%;
+            max-width: 90%;
+            padding: $grid-padding/2 $grid-padding;
+            >.dialog-close{
+                position: absolute;
+                z-index: 5;
+                top: $grid-padding/2;
+                right: $grid-padding;
+            }
+            .dialog-title{
+                top:0;
+                border-bottom: 1px dashed $border;
+            }
+            .dialog-control{
+                bottom:0;
+            }
+            .dialog-content{
+                position: relative;
+                padding: $grid-padding/2 0;
+                width: 100%;
+                font-size: convert(36px);
+                text-align: center;
+                min-height: 4.5em;
+
+                /* Firefox */
+                display:-moz-box;
+                -moz-box-pack:center;
+                -moz-box-align:center;
+
+                /* Safari、Opera 以及 Chrome */
+                display:-webkit-box;
+                -webkit-box-pack:center;
+                -webkit-box-align:center;
+
+                /* W3C */
+                display:box;
+                box-pack:center;
+                box-align:center;
+
+
+
+                >div{
+                    width: 100%;
+                    max-height: convert(720px);
+                    overflow: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+            }
+            
+        }
+    }
+    &.bottom{
+        .dialog-body{
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            max-height: 60%;
+            overflow: auto;
+        }
+        .dialog-title{
+            top:0;
+        }
+        .dialog-control{
+            top:0;
+        }
+        .dialog-close{
+            display: none;
+        }
+    }
+    &.top{
+        .dialog-body{
+            position: absolute;
+            width: 100%;
+            top: 0;
+            max-height: 100%;
+            overflow: auto;
+        }
+        .dialog-title{
+            bottom:0;
+        }
+        .dialog-control{
+            bottom:0;
+        }
+        .dialog-close{
+            display: none;
+        }
+    }
+     &.select{
+         background-color: rgba(0,0,0,0);
+        .dialog-body{
+            position: absolute;
+            width: 100%;
+            bottom: auto;
+            max-height: 60%;
+            overflow: auto;
+        }
+    }
+}
+.dialog-select{
+    // border: 1px solid $border;
+    li{
+        padding: 0 $grid-padding;
+        line-height: 1.5;
+        padding-top: 0.8em;
+        padding-bottom: 0.8em;
+        +li{
+            border-top:1px solid $border-light;
+        }
+        &.selected{
+            position: relative;
+            padding-right: convert(30px)+$grid-padding;
+            &:after{
+                @include fa;
+                content:"\f00c";
+                position: absolute;
+                top: 50%;
+                right: $grid-padding;
+                transform: translate(0,-50%);
+                -webkit-transform: translate(0,-50%);
+            }
+        }
+     }
+}

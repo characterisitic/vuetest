@@ -1,0 +1,173 @@
+.table{
+    //table-layout: fixed;
+    width: 100%;
+    font-size: convert(16px);
+    border-collapse: collapse;
+    &.fixed{
+        table-layout: fixed;
+    }
+    thead{
+        tr{
+            th{
+                background-color: #f3f3f3;
+                color: $font-color-light;
+                border-top: 1px solid $border-light;
+                border-bottom: 1px solid $border;
+                font-size: convert(24px);
+                font-weight: normal;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                text-align: left;
+                &:first-child{
+                    padding-left: $grid-padding;
+                }
+                &:last-child{
+                    padding-right: $grid-padding;
+                    text-align: right;
+                }
+            }
+        }
+    }
+    tbody{
+        tr{
+            td{
+                background-color: #fff;
+                padding-top: 0.5em;
+                padding-bottom: 0.5em;
+                border-top: 1px solid $border-light;
+                border-bottom: 1px solid $border-light;
+                &:first-child{
+                    padding-left: $grid-padding;
+                }
+                &:last-child{
+                    padding-right: $grid-padding;
+                    // text-align: right;
+                }
+                span{
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+.table-info{
+    color: $font-color-light;
+    font-size: convert(24px);
+    line-height: convert(60px);
+    padding: 0 $grid-padding;
+}
+// .table.select{
+//     tbody{
+//         tr{
+//             td{
+//                 padding: 0 !important;
+//                 border: 1px solid $border;
+//                 .checkbox{
+//                     font-size: convert(26px);
+//                     display: block;
+//                     width: 100%;
+//                     height: convert(80px);
+//                     span{
+//                         line-height: convert(80px);
+//                         height: 100%;
+//                         display: block;
+//                         text-align: center;
+//                         background-color: #fff;
+//                         i{
+//                             color: $font-color-light;
+//                         }
+//                     }
+//                     >input:checked+span{
+//                         background-color: lighten($blue, 10%);
+//                         color: #fff;
+//                         i{
+//                             color: #fff;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     &.line{
+//         tbody{
+//             tr{
+//                 td{
+//                     padding: convert(10px) !important;
+//                     border: 0;
+//                     .checkbox{
+//                         font-size: convert(26px);
+//                         display: block;
+//                         width: 100%;
+//                         height: convert(129px);
+//                         span{
+//                             padding-top: convert(20px);
+//                             line-height: 1.5;
+//                             height: convert(125px);
+//                             display: block;
+//                             text-align: center;
+//                             background-color: #fff;
+//                             border: 2px solid $blue;
+//                             border-radius: $radius;
+//                             font-size: convert(34px);
+//                             color: $blue;
+//                             small{
+//                                 font-size: convert(24px);
+//                             }
+//                         }
+//                         >input:checked+span{
+//                             background-color: #fff;
+//                             color: $blue;
+//                             background-image: url(images/icon_corner_checked.png);
+//                             background-size: convert(45px) convert(45px);
+//                             background-position: top right;
+//                             background-repeat: no-repeat;
+//                             background-clip: border-box;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+.table.grey{
+   tbody{
+        tr{
+            td{
+                padding: 0 !important;
+                border: 2px solid #fff;
+                height:  convert(80px);
+                background-color: $gray;
+                span{
+                    text-align: center;
+                    display: block;
+                    color: $font-color;
+                    i{
+                        color: $font-color-light;
+                    }
+                    
+                }
+            }
+       }
+    } 
+}
+.table.pure{
+    font-size: convert(23px);
+    thead{
+        tr{
+            th{
+                background: none;
+                border:0;
+                color: #595757;
+            }
+        }
+    }
+    tbody{
+        tr{
+            td{
+                background: none;
+                border:0;
+                color: #595757;
+            }
+        }
+    }
+}

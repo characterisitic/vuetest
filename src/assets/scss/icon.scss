@@ -1,0 +1,233 @@
+.icon {
+    width: 1.2em;
+    height: 1.2em;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    vertical-align: middle;
+}
+$icons:
+(icon_return icon_return 15px 25px)
+(icon_direction icon_direction 98px 15px)
+(icon_tablet icon_tablet 40px 30px)
+(icon_course_leave icon_course_leave 50px 50px)
+(icon_course_suspend icon_course_suspend 50px 50px)
+(icon_course_review icon_course_review 50px 50px)
+(icon_course_test icon_course_test 50px 50px)
+(icon_course_download icon_course_download 50px 50px)
+(icon_message icon_message 30px 30px)
+(icon_bell icon_bell 30px 30px)
+(icon_group icon_group 30px 30px)
+(icon_like icon_like 28px 28px)
+(icon_reply icon_reply 24px 28px)
+(icon_tag_play icon_tag_play 32px 32px)
+(icon_lock icon_lock 32px 32px)
+(icon_download icon_download 36px 36px)
+(icon_share icon_share 45px 45px)
+(icon_share2 icon_share2 30px 30px)
+(icon_search icon_search 45px 45px)
+(icon_plus icon_plus 30px 30px)
+(icon_search_blue icon_search_blue 32px 32px)
+(icon_search_white icon_search_white 30px 30px)
+(icon_touchIn icon_touchIn 20px 20px)
+(icon_review icon_review 30px 18px)
+
+(icon_index_nav_01 icon_index_nav_01 54px 54px)
+(icon_index_nav_02 icon_index_nav_02 54px 54px)
+(icon_index_nav_03 icon_index_nav_03 54px 54px)
+(icon_index_nav_04 icon_index_nav_04 54px 54px)
+(icon_index_nav_05 icon_index_nav_05 54px 54px)
+(icon_index_nav_06 icon_index_nav_06 54px 54px)
+
+(icon_voice icon_voice 50px 50px)
+(icon_undo icon_undo 28px 28px)
+(icon_keyboard icon_keyboard 40px 40px)
+//(icon_album icon_album 40px 40px)
+//(icon_open_camera icon_open_camera 40px 40px)
+(icon_range_01 icon_range_01 37px 47px)
+(icon_range_02 icon_range_02 37px 47px)
+(icon_range_03 icon_range_03 37px 47px)
+(icon_course_check icon_course_check 20px 16px)
+(icon_course_makeup icon_course_makeup 20px 16px)
+(icon_my_info icon_my_info 30px 30px)
+(icon_my_level icon_my_level 30px 30px)
+(icon_my_safe icon_my_safe 30px 30px)
+(icon_my_us icon_my_us 30px 30px)
+(icon_eye icon_eye 18px 12px)
+(icon_clock icon_clock 16px 16px)
+(icon_dele icon_dele 28px 32px)
+(icon_nomessage icon_nomessage 16px 18px)
+(icon_edit icon_edit 16px 18px)
+(icon_trash icon_trash 16px 18px)
+(icon_pencile icon_pencile 16px 18px)
+(icon_check icon_check 20px 20px)
+(icon_remove icon_remove 30px 30px)
+(icon_member icon_member 36px 36px)
+(icon_hand icon_hand 36px 36px)
+(icon_toggle icon_toggle 36px 36px)
+(icon_mic icon_mic 36px 36px)
+(icon_live_share icon_live_share 36px 36px)
+;
+
+@each $icon in $icons{
+    $class: nth($icon,1);
+    $name: nth($icon,2);
+    $width: nth($icon,3);
+    $height: nth($icon,4);
+    .#{$class}{
+        background-image: url(icons/#{$name}.png);
+    }
+    .#{$class}{
+        @include size($width,$height)
+    }
+}
+
+.icon_hand{
+    background-size: 100% auto;
+    background-position: top center;
+    &.active{
+        background-position: bottom center;
+    }
+}
+.icon_mic{
+    background-size: 100% auto;
+    background-position: top center;
+    &.active{
+        background-position: bottom center;
+    }
+}
+.arrow-right:after{
+    background-image: url(icons/icon_arrow_right.png)
+}
+.arrow-right:after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: convert(11px);
+    height: convert(18px);
+    margin-top: -(convert(9px));
+    top: 50%;
+    right: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.icon_my_info,
+.icon_my_level,
+.icon_my_safe,
+.icon_my_us{
+    vertical-align: middle;
+    background-size: 100% auto;
+    margin-right: 0.2em;
+}
+.icon_nav_01,
+.icon_nav_02,
+.icon_nav_03,
+.icon_nav_04,
+.icon_nav_05{
+    background-image: url(icons/icon_nav.png);
+}
+.icon_nav_01,
+.icon_nav_02,
+.icon_nav_03,
+.icon_nav_04,
+.icon_nav_05{
+    background-size: 500% 200%;
+    vertical-align: middle;
+    @include size(30px,30px);
+}
+.icon_nav_01{
+    background-position: 0 0;
+}
+.icon_nav_02{
+    background-position: 25% 0;
+}
+.icon_nav_03{
+    background-position: 50% 0;
+    transform: scale(1.2);
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(1.2);
+    -webkit-transform-origin: 50% 100%;
+}
+.icon_nav_04{
+    background-position: 75% 0;
+}
+.icon_nav_05{
+    background-position: 100% 0;
+}
+.active{
+    .icon_nav_01{
+        background-position: 0 100%;
+    }
+    .icon_nav_02{
+        background-position: 25% 100%;
+    }
+    .icon_nav_03{
+        background-position: 50% 100%;
+    }
+    .icon_nav_04{
+        background-position: 75% 100%;
+    }
+    .icon_nav_05{
+        background-position: 100% 100%;
+    }
+}
+.icon_message{
+    background-size: 100% auto;
+    background-position: 0 0;
+    &.yellow{
+         background-position: 0 25%;
+    }
+    &.red{
+         background-position: 0 50%;
+    }
+}
+.icon_lock{
+    background-size: auto 100%;
+    background-position: 0 0;
+    &.active{
+       background-position: 100% 0; 
+    }
+}
+.active .icon_lock{
+    background-position: 100% 0; 
+}
+.icon_like{
+    background-size: 100% auto;
+    background-position: 0 0;
+    &.active{
+       background-position: 0 100%; 
+    }
+    &.big{
+        @include size(32px,32px);
+    }
+    &.bar{
+        @include size(36px,36px);
+        background-image: url(icons/icon_like_bar.png);
+    }
+}
+
+.icon_tablet.min{
+    @include size(20px,16px)
+}
+.icon_tablet.middle{
+    @include size(32px,25px)
+}
+.icon_loading{
+    background-image: url(../images/loading.gif);
+    width: 1.5em;
+    height: 1.5em;
+}
+.icon_check{
+    background-size: 200% auto;
+    background-position: 100% 100%;
+    &.active{
+        background-position: 0 100%;
+    }
+}
+.active{
+    .icon_check{
+        background-position: 0 100%;
+    }
+}
